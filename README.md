@@ -32,6 +32,12 @@ Kreiran je Bugster projekat za praćenje projekata i bug-ova korišćenjem ASP.N
         </li>
     </ul>
 </p>
+<p>
+    * Moj prvi projekat je React weather widget app koji nema veze sa temom Bugster aplikacije.
+    API kontroleri su istestirani kroz Postman, i moj React widget makes šalje zahtev na
+    <a href="https://localhost:5001/api/users" target="_blank"> ovaj API </a>
+    u Bugster aplikaciji i dobija JSON response koji se može videti u konzoli u pretraživaču.
+</p>
 
 <h3>Project no. 2: ASP.NET Core MVC, Web API</h3>
 <h3>Bugster project made with ASP.NET Core</h3>
@@ -64,4 +70,10 @@ Bugster, a bug tracking project was made with ASP.NET Core.
             Linq is used for Dependency Injection through constructors
         </li>
     </ul>
+</p>
+<p>
+    * My first project is a React weather widget app which has nothing in common with Bugster subject.
+    API controller has been tested through Postman, and my React widget makes request to
+    <a href="https://localhost:5001/api/users" target="_blank"> this API </a>
+    in the app and fetches JSON response which you can view in the console of the browser.
 </p>
