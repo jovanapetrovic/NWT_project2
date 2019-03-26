@@ -61,6 +61,8 @@ namespace Bugster
                 app.UseHsts();
             }
 
+            app.UseCors();
+
             //app.UseHttpsRedirection();
 
             DummyData.Initialize(app);

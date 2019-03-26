@@ -100,7 +100,7 @@ namespace Bugster.Controllers
             {
                 var success = projectRepository.CreateOrUpdateProject(project);
                 TempData["OperationMessage"] = success;
-                return RedirectToAction(nameof(Index));
+                return RedirectToAction("UserProjects", new { userId = project.CreatorId });
             }
             FillProjectCreatorDropdownWithDynamicValues();
             return View(project);

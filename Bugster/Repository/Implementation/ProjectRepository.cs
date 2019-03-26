@@ -36,7 +36,8 @@ namespace Bugster.Repository
                     context.Projects.Add(model);
 
                 }
-                return context.SaveChanges() > 0;
+                context.SaveChanges();
+                return true;
             }
             catch (Exception ex)
             {
