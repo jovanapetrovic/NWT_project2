@@ -37,6 +37,10 @@ namespace Bugster.Controllers
 
         public IActionResult UserProjects(long userId)
         {
+            var message = TempData["OperationMessage"];
+            ViewBag.IsRedirected = message != null;
+            ViewBag.IsSuccessfull = message;
+
             var projects = projectRepository.GetAllUserProjects(userId);
             return View(projects);
         }

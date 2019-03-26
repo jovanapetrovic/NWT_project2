@@ -49,7 +49,7 @@ namespace Bugster.Models
         public long? AssigneeId { get; set; }
         public User Assignee { get; set; }
         [Required]
-        [CustomDateValidationAttribute]
+        [CustomDateValidation]
         [DataType(DataType.Date)]
         public DateTime DueDate { get; set; }
         public DateTime DateCreated { get; set; }

@@ -79,7 +79,8 @@ namespace Bugster.Repository
                     //model.DateCreated = DateTime.Now;
                     context.Bugs.Add(model);
                 }
-                return context.SaveChanges() > 0;
+                context.SaveChanges();
+                return false;
             }
             catch (Exception ex)
             {

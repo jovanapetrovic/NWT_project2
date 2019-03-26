@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bugster.Models.util
 {
-    public class CustomDateValidationAttribute : ValidationAttribute
+    public class CustomDateValidation : ValidationAttribute
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
