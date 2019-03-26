@@ -1,0 +1,117 @@
+﻿@model Bugster.Models.Bug
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h2>Bug Details</h2>
+        </div>
+        <div class="col-sm">
+            <a asp-action="Index" class="btn btn-outline-secondary">Back to List</a>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <p>View all the bug related details.</p>
+        </div>
+    </div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dd>
+            <b>Date Created: </b> @Html.DisplayFor(model => model.DateCreated)
+        </dd>
+    </dl>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Project)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Project.Name)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Reporter)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Reporter)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Assignee)
+                </dt>
+                <dd>
+                    @if (Model.Assignee != null && String.IsNullOrEmpty(Model.Assignee.Email) == false)
+                    {
+                        @Html.DisplayFor(model => model.Assignee.Email)
+                    }
+                    else
+                    {
+                        <span>Unassigned</span>
+                    }
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Title)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Title)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Description)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.Description)
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Status)
+                </dt>
+                <dd>
+                    @if (Model.Status.ToString().Equals("OPEN"))
+                    {
+                        <span class="badge badge-primary">@Html.DisplayFor(model => model.Status)</span>
+                    }
+                    @if (Model.Status.ToString().Equals("IN_PROGRESS"))
+                    {
+                        <span class="badge badge-info">@Html.DisplayFor(model => model.Status)</span>
+                    }
+                    @if (Model.Status.ToString().Equals("TESTING"))
+                    {
+                        <span class="badge badge-warning">@Html.DisplayFor(model => model.Status)</span>
+                    }
+                    @if (Model.Status.ToString().Equals("CLOSED"))
+                    {
+                        <span class="badge badge-success">@Html.DisplayFor(model => model.Status)</span>
+                    }
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.Priority)
+                </dt>
+                <dd>
+                    @if (Model.Priority.ToString().Equals("LOW") || Model.Priority.ToString().Equals("LOWEST"))
+                    {
+                        <span class="badge badge-success">@Html.DisplayFor(model => model.Priority)</span>
+                    }
+                    @if (Model.Priority.ToString().Equals("MEDIUM"))
+                    {
+                        <span class="badge badge-warning">@Html.DisplayFor(model => model.Priority)</span>
+                    }
+                    @if (Model.Priority.ToString().Equals("HIGH") || Model.Priority.ToString().Equals("HIGHEST"))
+                    {
+                        <span class="badge badge-danger">@Html.DisplayFor(model => model.Priority)</span>
+                    }
+                </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.DueDate)
+                </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.DueDate)
+                </dd>
+            </dl>
+        </div>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-primary">Edit</a>
+    </div>
+</div>

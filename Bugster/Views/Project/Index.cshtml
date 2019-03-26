@@ -1,0 +1,53 @@
+﻿@model List<Bugster.Models.User>
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Project";
+}
+@if (ViewBag.IsRedirected && ViewBag.IsSuccessfull)
+{
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    Success!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+}
+@if (ViewBag.IsRedirected && !ViewBag.IsSuccessfull)
+{
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    Failure!
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h2>Available users</h2>
+        </div>
+        <div class="col-sm">
+            <a asp-action="Create" class="btn btn-outline-primary">Create New Project</a>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <p>Managers are project owners. Click on the name to view owned projects.</p>
+        </div>
+    </div>
+    <div class="row">
+        @if (Model.Count == 0)
+        {
+            <p>There are no users in the database :(</p>
+        }
+        <ul class="list-group list-group-flush">
+            @{int i = 1;}
+            @foreach (var user in Model)
+            {
+                <li class="list-group-item"><b>@i. </b>@Html.ActionLink($"{user.FullName} - {user.Email}", "UserProjects", "Project", new { userId = user.Id })</li>
+                i++;
+            }
+        </ul>
+    </div>
+</div>

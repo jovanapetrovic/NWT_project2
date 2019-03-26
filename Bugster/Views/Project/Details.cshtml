@@ -1,0 +1,100 @@
+﻿@model Bugster.Models.Project
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <h2>Project Details</h2>
+        </div>
+        <div class="col-sm">
+            <a asp-action="UserProjects" asp-route-userId="@Model.CreatorId" class="btn btn-outline-secondary">Back to List</a>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col">
+            <p>View project details and the bugs which are reported for it.</p>
+        </div>
+    </div>
+    <hr />
+    <div>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Id)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Id)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Creator)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Creator.Email)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+        </dl>
+        <div class="row">
+            @foreach (var bug in Model.Bugs)
+            {
+                <div class="col-3">
+                    <div class="card bg-light mb-3 mt-3">
+                        <div class="card-body">
+                            <h5 class="card-title">
+                                @bug.Title -
+
+                                @if (bug.Status.ToString().Equals("OPEN"))
+                                {
+                                    <span class="badge badge-primary">@bug.Status.ToString()</span>
+                                }
+                                @if (bug.Status.ToString().Equals("IN_PROGRESS"))
+                                {
+                                    <span class="badge badge-info">@bug.Status.ToString()</span>
+                                }
+                                @if (bug.Status.ToString().Equals("TESTING"))
+                                {
+                                    <span class="badge badge-warning">@bug.Status.ToString()</span>
+                                }
+                                @if (bug.Status.ToString().Equals("CLOSED"))
+                                {
+                                    <span class="badge badge-success">@bug.Status.ToString()</span>
+                                }
+                                @if (bug.Priority.ToString().Equals("LOW") || bug.Priority.ToString().Equals("LOWEST"))
+                                {
+                                    <span class="badge badge-success">@bug.Priority.ToString()</span>
+                                }
+                                @if (bug.Priority.ToString().Equals("MEDIUM"))
+                                {
+                                    <span class="badge badge-warning">@bug.Priority.ToString()</span>
+                                }
+                                @if (bug.Priority.ToString().Equals("HIGH") || bug.Priority.ToString().Equals("HIGHEST"))
+                                {
+                                    <span class="badge badge-danger">@bug.Priority.ToString()</span>
+                                }
+                            </h5>
+                            @*<h6 class="card-subtitle mb-2 text-muted">@bug.Assignee?.Email</h6>*@
+                            <p class="card-text">@bug.Description</p>
+                            <a asp-controller="Bugs" asp-action="Details" asp-route-id="@bug.Id" class="btn btn-outline-primary">
+                                View Bug
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+
+    </div>
+</div>

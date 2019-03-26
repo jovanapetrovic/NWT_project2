@@ -1,0 +1,57 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="jumbotron">
+    <h1 class="display-4">Welcome to Bugster App!</h1>
+    <p class="lead">This is a simple bug tracking app which makes it easy for you to take care of your users, projects and bugs. It is a result of a project for NWT subject.</p>
+    <hr class="my-4">
+    <img src="~/images/bugtracker.png" class="img-fluid rounded" alt="Responsive image" />
+    <hr class="my-4">
+    <p>Take a look at some more project related details:</p>
+    <p class="lead">
+        <a class="btn btn-primary btn-lg" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+            Project Description
+        </a>
+        <a class="btn btn-primary btn-lg" role="button" href="~/StaticFiles/nwt_domain.pdf" target="_blank">
+            View Bugster Domain
+        </a>
+    </p>
+    <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+            <p>
+                <h3>ASP.NET Core MVC, Web API</h3>
+
+                <ul>
+                    <li>
+                        Model domain is provided (classes which desribe given domain model)
+                    </li>
+                    <li>
+                        MVC controllers are available and Razor engine is used for View
+                    </li>
+                    <li>
+                        API controllers are available and work with JSON data
+                    </li>
+                    <li>
+                        Code-first approach is used to generate database (somme dummy data is also initialized)
+                    </li>
+                    <li>
+                        Entity Framework is used to access database
+                    </li>
+                    <li>
+                        Database is accessed through Repository classes
+                    </li>
+                    <li>
+                        Linq is used for Dependency Injection through constructors
+                    </li>
+                </ul>
+            </p>
+            <p>
+                * My first project is a React weather widget app which has nothing in common with Bugster subject.
+                API controller has been tested through Postman, so it would be enough to make requests
+                to <a href="https://localhost:5001/api/users" target="_blank"> this API </a> in the app and fetch JSON response and preview it.
+            </p>
+        </div>
+    </div>
+</div>
