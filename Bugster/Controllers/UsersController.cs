@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Bugster.Data;
 using Bugster.Models;
+using Microsoft.AspNetCore.Cors;
 
 namespace Bugster.Controllers
 {
+    [EnableCors("AllowLocalhostAsOrigin")]
     [Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
