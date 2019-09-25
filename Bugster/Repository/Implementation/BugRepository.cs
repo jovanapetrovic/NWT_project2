@@ -80,7 +80,7 @@ namespace Bugster.Repository
                     context.Bugs.Add(model);
                 }
                 context.SaveChanges();
-                return false;
+                return true;
             }
             catch (Exception ex)
             {
